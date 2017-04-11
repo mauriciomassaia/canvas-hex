@@ -15,4 +15,8 @@ Build project:
 $ npm build
 ```
 
+### Dots with trail:
+![Screenshot](./screenshot2.jpg)
+
+### Dots:
 ![Screenshot](./screenshot.jpg)
