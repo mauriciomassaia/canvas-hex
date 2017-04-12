@@ -15,6 +15,9 @@ Build project:
 $ npm build
 ```
 
+### New colors
+![Screenshot](./screenshot4.jpg)
+
 ### Dots with trail disolve + blur:
 ![Screenshot](./screenshot3.jpg)
 
