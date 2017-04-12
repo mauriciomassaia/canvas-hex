@@ -1,4 +1,4 @@
-# Canvas - Hex 
+# Canvas - Hex
 
 Start webpack-dev-server:
 ```
@@ -14,6 +14,9 @@ Build project:
 ```
 $ npm build
 ```
+
+### Dots with trail disolve + blur:
+![Screenshot](./screenshot3.jpg)
 
 ### Dots with trail:
 ![Screenshot](./screenshot2.jpg)
