@@ -2,7 +2,13 @@
 
 Install dependencies:
 ```
-yarn install
+$ yarn n install
+```
+
+or 
+
+```
+$ npm install
 ```
 
 Start webpack-dev-server:
@@ -12,7 +18,7 @@ $ npm start
 
 Start watch:
 ```
-$npm run dev
+$ npm run dev
 ```
 
 Build project:
