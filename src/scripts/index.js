@@ -4,9 +4,9 @@ import Hex from './Hex';
 
 const MAX_ALIVE = 200;
 const COLOR_CHANGE_TIME = 2000;
-const ADD_PARTICLE_TIME = 1000 / 30;
+const ADD_PARTICLE_TIME = 1000 / 20;
 
-const colors = [
+const COLORS = [
   0xC9BFBF,
   0xBDB4F0,
   0xFF9999,
@@ -16,18 +16,17 @@ const colors = [
 ];
 
 let currentColor = 0;
+const hexPaticles = [];
 const app = new Application(window.innerWidth, window.innerHeight, {
   backgroundColor: 0xffffff,
   antialias: true,
   roundPixels: true
 });
-
 document.body.appendChild(app.view);
 
-const list = [];
 const container = new Container();
 
-const blurFilter = new filters.BlurFilter(1, 2);
+const blurFilter = new filters.BlurFilter(2, 2);
 const renderTex = RenderTexture.create(app.renderer.width, app.renderer.height);
 const sprite = new Sprite(renderTex);
 
@@ -47,27 +46,27 @@ app.ticker.add(() => {
   app.renderer.render(container, renderTex, false);
 });
 
-const addHex = () => {
+const addParticle = () => {
   const hex = new Hex(
-    container,
     app.renderer.width / 2,
     app.renderer.height / 2,
-    colors[currentColor]
+    COLORS[currentColor]
   );
+  container.addChild(hex);
   hex.run();
 
-  if (list.length === MAX_ALIVE) {
-    // remove oldest
-    list.shift().kill();
+  if (hexPaticles.length === MAX_ALIVE) {
+    container.removeChild(hexPaticles[0]);
+    hexPaticles.shift().kill();
   }
 
-  list.push(hex);
+  hexPaticles.push(hex);
 };
 
 const changeColor = () => {
   currentColor++;
-  currentColor %= colors.length;
+  currentColor %= COLORS.length;
 };
 
-setInterval(addHex, ADD_PARTICLE_TIME);
+setInterval(addParticle, ADD_PARTICLE_TIME);
 setInterval(changeColor, COLOR_CHANGE_TIME);

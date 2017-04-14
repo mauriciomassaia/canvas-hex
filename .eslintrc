@@ -2,14 +2,9 @@
   "extends": "airbnb",
   "rules": {
     "comma-dangle": ["error", "never"],
-    "no-underscore-dangle": ["error", {
-      "allow": ["_id"]
-    }],
-    "prefer-stateless-function": ["off"],
-    "react/forbid-prop-types": 0
+    "prefer-stateless-function": ["off"]
   },
   "env": {
-    "browser": true,
-    "commonjs": true
+    "browser": true
   }
 }
