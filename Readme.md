@@ -1,5 +1,10 @@
 # Canvas - Hex
 
+Install dependencies:
+```
+yarn install
+```
+
 Start webpack-dev-server:
 ```
 $ npm start
