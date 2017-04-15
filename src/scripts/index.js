@@ -20,7 +20,8 @@ const hexPaticles = [];
 const app = new Application(window.innerWidth, window.innerHeight, {
   backgroundColor: 0xffffff,
   antialias: true,
-  roundPixels: true
+  roundPixels: true,
+  resolution: window.devicePixelRatio || 1
 });
 document.body.appendChild(app.view);
 
@@ -48,8 +49,8 @@ app.ticker.add(() => {
 
 const addParticle = () => {
   const hex = new Hex(
-    app.renderer.width / 2,
-    app.renderer.height / 2,
+    window.innerWidth / 2,
+    window.innerHeight / 2,
     COLORS[currentColor]
   );
   container.addChild(hex);
