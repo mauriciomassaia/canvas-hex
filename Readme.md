@@ -1,8 +1,22 @@
 # Canvas - Hex
 
+Particles moving into a hexagon path changing directions randomly. 
+
+---
+
+Using [PixiJS](http://www.pixijs.com/) and [GSAP](https://greensock.com/gsap).
+
+The performance needs to be improved, turning the BlurFilter off makes a huge difference.
+
+Feel free to help and have fun =)
+
+[View demo](https://mauriciomassaia.github.io/canvas-hex/)
+
+---
+
 Install dependencies:
 ```
-$ yarn n install
+$ yarn install
 ```
 
 or 
@@ -23,7 +37,7 @@ $ npm run dev
 
 Build project:
 ```
-$ npm build
+$ npm run build
 ```
 
 ### New colors
