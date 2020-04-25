@@ -1,5 +1,4 @@
 import { Application, filters, Container, Graphics, RenderTexture, Sprite } from 'pixi.js'
-import '../styles/index.css'
 import Hex from './Hex'
 
 const MAX_ALIVE = 200
@@ -17,11 +16,15 @@ const COLORS = [
 
 let currentColor = 0;
 const hexPaticles = [];
-const app = new Application(window.innerWidth, window.innerHeight, {
+console.log(window.innerWidth, window.innerHeight)
+const app = new Application({
+  width: window.innerWidth,
+  height: window.innerHeight,
   backgroundColor: 0xffffff,
   antialias: true,
   roundPixels: true,
-  resolution: window.devicePixelRatio || 1
+  resolution: window.devicePixelRatio || 1,
+  view: document.body.getElementsByTagName('canvas')[0]
 })
 document.body.appendChild(app.view)
 
@@ -71,3 +74,9 @@ const changeColor = () => {
 
 setInterval(addParticle, ADD_PARTICLE_TIME)
 setInterval(changeColor, COLOR_CHANGE_TIME)
+
+window.addEventListener('resize', () => {
+  app.renderer.render(bg, renderTex, true)
+  app.renderer.render(container, renderTex, true)
+  app.renderer.resize(window.innerWidth, window.innerHeight)
+})
