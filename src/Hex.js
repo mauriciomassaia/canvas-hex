@@ -2,14 +2,14 @@ import { Graphics } from 'pixi.js'
 import { TweenMax, Linear } from 'gsap'
 
 export default class Hex extends Graphics {
-  constructor(initX, initY, color) {
+  constructor (initX, initY, color, time = 0.1) {
     super()
     this.distance = 20
     this.angleInc = Math.PI / 3
     this.angle = Math.PI
     this.x = initX
     this.y = initY
-    this.time = 0.1
+    this.time = time
 
     this.cacheAsBitmap = true
     this.beginFill(color, 1)
@@ -19,7 +19,7 @@ export default class Hex extends Graphics {
     this.run = this.run.bind(this)
   }
 
-  run() {
+  run () {
     const direction = Math.random() > 0.5 ? 1 : -1
     this.angle += this.angleInc * direction
     this.tween = TweenMax.to(this, this.time, {
@@ -30,7 +30,7 @@ export default class Hex extends Graphics {
     })
   }
 
-  kill() {
+  kill () {
     this.tween.kill()
   }
 }
