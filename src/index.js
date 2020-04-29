@@ -3,7 +3,7 @@ import Hex from './Hex'
 
 const COLORS = [0xC9BFBF, 0xBDB4F0, 0xFF9999, 0xFF6B6B, 0xfbcb00, 0x7a7a78]
 const HEX_TIME = [0.05, 0.1, 0.2, 0.6]
-const MAX_ALIVE = 200
+const MAX_ALIVE = 100
 const PI2 = Math.PI * 2
 
 const hexPaticles = []
@@ -26,7 +26,7 @@ const app = new Application({
   antialias: true,
   resolution: window.devicePixelRatio || 1
 })
-document.body.appendChild(app.view)
+
 app.view.className = 'home-canvas'
 
 const container = new Container()
@@ -39,10 +39,12 @@ const bg = new Graphics()
 bg.beginFill(0xffffff, 0.05)
 bg.drawRect(0, 0, app.renderer.width, app.renderer.height)
 bg.endFill()
+app.renderer.render(bg, renderTex, true)
 
 app.stage.filters = [blurFilter]
 app.stage.addChild(sprite)
 app.stage.addChild(container)
+
 
 app.stage.interactive = true
 
@@ -138,5 +140,8 @@ window.addEventListener('load', () => {
   window.addEventListener('resize', onWindowResize)
   window.addEventListener('pointermove', onWindowPointerMove)
   window.addEventListener('pointerup', onWindowPointerUp)
-  app.ticker.add(() => render())
+  render()
+  app.ticker.add(render)
+  // add canvas to body after render to avoid black flick
+  document.body.appendChild(app.view)
 })
