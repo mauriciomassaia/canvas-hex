@@ -6,9 +6,8 @@
   "scripts": {
     "postinstall": "npm run build",
     "start": "parcel ./src/index.html --port 3000",
-    "build": "parcel build ./src/index.html --no-source-maps",
-    "build:clean": "find ./dist/ -type f \\( -iname '*.css' -o -iname '*.js' -o -iname '*.html' -o -iname '*.map' -o -iname '*.png' -o -iname '*.jpg' \\) -delete",
-    "lint": "standard"
+    "build": "npm run lint && parcel build ./src/index.html --no-source-maps --dist-dir docs/",
+    "lint": "standard src/*.js"
   },
   "devDependencies": {
     "standard": "16.0.3",
