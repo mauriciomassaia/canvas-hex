@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "npm run build",
     "start": "parcel ./src/index.html --port 3000",
-    "build": "npm run lint && parcel build ./src/index.html --no-source-maps --dist-dir docs/",
+    "build": "npm run lint && parcel build ./src/index.html --no-source-maps --dist-dir docs/ --public-url https://mauriciomassaia.github.io/canvas-hex/",
     "lint": "standard src/*.js"
   },
   "devDependencies": {
