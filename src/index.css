@@ -12,3 +12,16 @@ canvas {
   margin: 0;
   padding: 0;
 }
+
+.view-source-bt {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem 1rem;
+  color: black;
+  font-size: 0.75rem;
+}
+
+.view-source-bt:visited {
+  color: black;
+}

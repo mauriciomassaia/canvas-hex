@@ -4,9 +4,10 @@
   "description": "Canvas Hex Experiment",
   "author": "Mauricio Massaia",
   "scripts": {
+    "prebuild": "rm -r docs/",
     "postinstall": "npm run build",
     "start": "parcel ./src/index.html --port 3000",
-    "build": "npm run lint && parcel build ./src/index.html --no-source-maps --dist-dir docs/ --public-url https://mauriciomassaia.github.io/canvas-hex/",
+    "build": "npm run lint && parcel build ./src/index.html --no-source-maps --dist-dir docs/ --public-url . --no-scope-hoist",
     "lint": "standard src/*.js"
   },
   "devDependencies": {

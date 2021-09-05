@@ -1,5 +1,5 @@
 import { Graphics } from 'pixi.js'
-import { TweenMax, Linear } from 'gsap'
+import gsap from 'gsap'
 
 export default class Hex extends Graphics {
   constructor (initX, initY, color, time = 0.1) {
@@ -22,10 +22,10 @@ export default class Hex extends Graphics {
   run () {
     const direction = Math.random() > 0.5 ? 1 : -1
     this.angle += this.angleInc * direction
-    this.tween = TweenMax.to(this, this.time, {
+    this.tween = gsap.to(this, this.time, {
       x: Math.sin(this.angle) * this.distance + this.x,
       y: Math.cos(this.angle) * this.distance + this.y,
-      ease: Linear.easeNone,
+      ease: 'none',
       onComplete: this.run
     })
   }
