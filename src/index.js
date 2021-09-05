@@ -44,8 +44,6 @@ app.renderer.render(bg, renderTex, true)
 app.stage.filters = [blurFilter]
 app.stage.addChild(sprite)
 app.stage.addChild(container)
-
-
 app.stage.interactive = true
 
 function render () {
@@ -82,7 +80,7 @@ function addParticle () {
 function getAngle (p1, p2) {
   const a = p2.x - p1.x
   const b = p2.y - p1.y
-  var angle = Math.atan2(b, a)
+  let angle = Math.atan2(b, a)
   if (angle < 0) {
     angle += 2 * Math.PI
   }
