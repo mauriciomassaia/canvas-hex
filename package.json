@@ -11,8 +11,9 @@
     "lint": "standard src/*.js"
   },
   "devDependencies": {
-    "standard": "16.0.3",
-    "parcel": "2.0.0-rc.0"
+    "parcel": "^2.3.2",
+    "querystring-es3": "^0.2.1",
+    "standard": "^16.0.4"
   },
   "dependencies": {
     "gsap": "3.7.1",
