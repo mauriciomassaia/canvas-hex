@@ -11,7 +11,6 @@ export default class Hex extends Graphics {
     this.y = initY
     this.time = time
 
-    this.cacheAsBitmap = true
     this.beginFill(color, 1)
     this.drawCircle(0, 0, 4)
     this.endFill()
@@ -22,9 +21,10 @@ export default class Hex extends Graphics {
   run () {
     const direction = Math.random() > 0.5 ? 1 : -1
     this.angle += this.angleInc * direction
-    this.tween = gsap.to(this, this.time, {
+    this.tween = gsap.to(this, {
       x: Math.sin(this.angle) * this.distance + this.x,
       y: Math.cos(this.angle) * this.distance + this.y,
+      duration: this.time,
       ease: 'none',
       onComplete: this.run
     })

@@ -23,8 +23,8 @@ const app = new Application({
   width: window.innerWidth,
   height: window.innerHeight,
   backgroundColor: 0xffffff,
-  antialias: true,
-  resolution: window.devicePixelRatio || 1
+  antialias: false,
+  resolution: 1
 })
 
 app.view.className = 'home-canvas'
@@ -36,7 +36,8 @@ const sprite = new Sprite(renderTex)
 
 // white background will fade out the drawing behind.
 const bg = new Graphics()
-bg.beginFill(0xffffff, 0.01)
+bg.beginFill(0xffffff, 1)
+bg.alpha = 0.01
 bg.drawRect(0, 0, app.renderer.width, app.renderer.height)
 bg.endFill()
 app.renderer.render(bg, renderTex, true)
@@ -90,12 +91,12 @@ function getAngle (p1, p2) {
 function getDistance (p1, p2) {
   const a = p2.x - p1.x
   const b = p2.y - p1.y
-  return Math.sqrt((a * a) + (b * b))
+  return Math.sqrt((a * a) + (b * b)) >> 0
 }
 
 function onWindowPointerMove (e) {
   const pt = { x: e.clientX, y: e.clientY }
-  const distance = Math.min(getDistance(center, pt), maxDistance)
+  const distance = Math.min(getDistance(center, pt), maxDistance) >> 0
   const angle = getAngle(center, pt)
 
   // change hexTime based on distance, the closer the faster
@@ -130,7 +131,7 @@ function onWindowResize () {
   app.renderer.resize(w, h)
 
   // render again and clear buffer
-  app.renderer.render(bg, renderTex, true)
+  // app.renderer.render(bg, renderTex, true)
   app.renderer.render(container, renderTex, true)
 }
 
