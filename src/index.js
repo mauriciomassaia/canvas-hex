@@ -30,13 +30,13 @@ const app = new Application({
 app.view.className = 'home-canvas'
 
 const container = new Container()
-const blurFilter = new filters.BlurFilter(4, 4)
-const renderTex = RenderTexture.create(app.renderer.width, app.renderer.height)
+const blurFilter = new filters.BlurFilter(2, 2, 1)
+const renderTex = RenderTexture.create({ width: app.renderer.width, height: app.renderer.height })
 const sprite = new Sprite(renderTex)
 
 // white background will fade out the drawing behind.
 const bg = new Graphics()
-bg.beginFill(0xffffff, 0.05)
+bg.beginFill(0xffffff, 0.01)
 bg.drawRect(0, 0, app.renderer.width, app.renderer.height)
 bg.endFill()
 app.renderer.render(bg, renderTex, true)
