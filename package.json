@@ -1,23 +1,18 @@
 {
   "name": "canvas-hex",
-  "version": "1.0.0",
-  "description": "Canvas Hex Experiment",
-  "author": "Mauricio Massaia",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "prebuild": "rm -r docs/",
-    "postinstall": "npm run build",
-    "start": "parcel ./src/index.html --port 3000",
-    "build": "npm run lint && parcel build ./src/index.html --no-source-maps --dist-dir docs/ --public-url . --no-scope-hoist",
-    "lint": "standard src/*.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "parcel": "^2.3.2",
-    "querystring-es3": "^0.2.1",
-    "standard": "^16.0.4"
+    "vite": "^5.1.0"
   },
   "dependencies": {
-    "gsap": "3.7.1",
-    "pixi.js": "6.1.2"
-  },
-  "license": "MIT"
+    "gsap": "^3.12.5",
+    "pixi.js": "^6.1.2"
+  }
 }
