@@ -1,5 +1,6 @@
 import { Application, filters, Container, Graphics, RenderTexture, Sprite } from 'pixi.js'
 import Hex from './Hex'
+import './index.css'
 
 const COLORS = [0xC9BFBF, 0xBDB4F0, 0xFF9999, 0xFF6B6B, 0xfbcb00, 0x7a7a78]
 const HEX_TIME = [0.05, 0.1, 0.2, 0.6]
