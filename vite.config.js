@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 export default defineConfig(() =>({
   // config options
   build: {
-    outDir: 'docs'
+    outDir: 'docs',
+    base: '/canvas-hex/'
   }
 }));
